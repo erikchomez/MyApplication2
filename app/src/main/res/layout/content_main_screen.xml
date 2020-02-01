@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <TextView
                 android:id="@+id/monday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:clickable="false"
                 android:layout_weight="1"
                 style="?android:attr/borderlessButtonStyle"/>
-            <Button
+            <TextView
                 android:id="@+id/tuesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 android:clickable="false"
                 android:layout_weight="1"
                 style="?android:attr/borderlessButtonStyle"/>
-            <Button
+            <TextView
                 android:id="@+id/wednesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:clickable="false"
                 android:layout_weight="1"
                 style="?android:attr/borderlessButtonStyle"/>
-            <Button
+            <TextView
                 android:id="@+id/thursday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:clickable="false"
                 android:layout_weight="1"
                 style="?android:attr/borderlessButtonStyle"/>
-            <Button
+            <TextView
                 android:id="@+id/friday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
