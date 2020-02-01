@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.TableRow;
 
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -62,6 +63,7 @@ public class MainScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
         ArrayList<String> group_of_users = intent.getStringArrayListExtra("key");
+        printLinearNames(group_of_users);
     }
 
     @Override
@@ -71,16 +73,20 @@ public class MainScreen extends AppCompatActivity {
         return true;
     }
 
-    public void init() {
+    public void printLinearNames(ArrayList<String> group_of_users) {
         tableLayout = findViewById(R.id.simpleTableLayout);
+        TextView currentName;
+        //System.out.println(group_of_users.size());
 
-        for(int i = 1; i < 3; i++) {
+        for(int i = 0; i < group_of_users.size(); i++) {
             TableRow tR = new TableRow(this);
-            //insert a name
-            Button new_button = new Button(this);
-            tR.addView(new_button);
-
-            tableLayout.addView(tR,i);
+            currentName = new TextView(this);
+            currentName.setText(group_of_users.get(i));
+            tR.addView(currentName);
+            //Button new_button = new Button(this);
+            //tR.addView(new_button);
+            //add buttons in the correct row here
+            tableLayout.addView(tR,i+1);
         }
 
     }

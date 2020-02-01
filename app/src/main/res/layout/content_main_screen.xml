@@ -115,8 +115,8 @@
 
     <Button
         android:id="@+id/noWorkout"
-        android:layout_width="158dp"
-        android:layout_height="64dp"
+        android:layout_width="160dp"
+        android:layout_height="53dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
