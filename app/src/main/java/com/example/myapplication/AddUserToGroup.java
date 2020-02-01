@@ -20,6 +20,7 @@ public class AddUserToGroup extends AppCompatActivity {
 
     Button addUser, done_adding;
     EditText insertName;
+    int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class AddUserToGroup extends AppCompatActivity {
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                counter++;
                 String user_name = insertName.getText().toString();
                 CreateNewUser new_user = new CreateNewUser(user_name);
 
@@ -42,6 +44,12 @@ public class AddUserToGroup extends AppCompatActivity {
 
                 insertName.getText().clear();
                 Toast.makeText(getApplicationContext(),"User added to the group!",Toast.LENGTH_SHORT).show();
+
+                if(counter == 6) {
+                    // once there are 6 users in the group, the button to add a user is no longer clickable
+                    addUser.setClickable(false);
+                    addUser.setText("No more users can be added.");
+                }
 
             }
 
