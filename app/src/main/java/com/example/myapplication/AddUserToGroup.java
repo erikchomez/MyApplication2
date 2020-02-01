@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,9 @@ public class AddUserToGroup extends AppCompatActivity {
         done_adding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(AddUserToGroup.this, MainActivity.class);
+                intent.putExtra("key", group_of_users);
+                startActivity(intent);
 
             }
         });
