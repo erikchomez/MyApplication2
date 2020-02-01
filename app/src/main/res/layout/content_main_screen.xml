@@ -37,6 +37,14 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_weight="1"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <TextView
                 android:id="@+id/monday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,34 +104,26 @@
 
     <Button
         android:id="@+id/addWorkout"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
+        android:layout_width="160dp"
+        android:layout_height="53dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:text="@string/add_workout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/simpleTableLayout" />
 
     <Button
         android:id="@+id/noWorkout"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="158dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
+        android:layout_marginBottom="64dp"
         android:text="@string/did_not_workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/addWorkout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/addWorkout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

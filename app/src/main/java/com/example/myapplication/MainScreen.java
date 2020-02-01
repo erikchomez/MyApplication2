@@ -20,10 +20,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.TableRow;
+
+import android.widget.TableLayout;
 
 public class MainScreen extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    TableLayout tableLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,20 @@ public class MainScreen extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_screen, menu);
         return true;
+    }
+
+    public void init() {
+        tableLayout = findViewById(R.id.simpleTableLayout);
+
+        for(int i = 1; i < 3; i++) {
+            TableRow tR = new TableRow(this);
+            //insert a name
+            Button new_button = new Button(this);
+            tR.addView(new_button);
+
+            tableLayout.addView(tR,i);
+        }
+
     }
 
     @Override
