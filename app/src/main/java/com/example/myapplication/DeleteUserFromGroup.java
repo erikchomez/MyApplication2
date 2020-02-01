@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class DeleteExisUser extends AppCompatActivity {
+public class DeleteUserFromGroup extends AppCompatActivity {
     /**
-     ** Activity where the user deletes people from a group.
+     ** When user chooses to click the delete button,
+     * the array with all members is updated.
      */
 
 }
