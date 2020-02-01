@@ -49,7 +49,7 @@ public class AddUserToGroup extends AppCompatActivity {
         done_adding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AddUserToGroup.this, MainActivity.class);
+                Intent intent = new Intent(AddUserToGroup.this, MainScreen.class);
                 intent.putExtra("key", group_of_users);
                 startActivity(intent);
 
