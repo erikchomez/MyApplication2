@@ -1,9 +1,17 @@
 package com.example.myapplication;
 
 public class CreateNewUser {
-    String mName;
+    private String mName;
+    private boolean mWorkedOut;
+    private int mPasses;
 
     public CreateNewUser(String name) {
-        mName = name;
+        this.mName = name;
+        this.mWorkedOut = false;
+        this.mPasses = 2;
+    }
+
+    public String getName() {
+        return this.mName;
     }
 }

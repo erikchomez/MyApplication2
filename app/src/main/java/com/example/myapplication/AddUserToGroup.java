@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AddUserToGroup extends AppCompatActivity {
     /**
      * Second activity where the user adds people to a group.
      */
-
-    ArrayList<CreateNewUser> group_of_users;
+    ArrayList<String> group_of_users;
 
     Button addUser, done_adding;
     EditText insertName;
@@ -38,7 +38,7 @@ public class AddUserToGroup extends AppCompatActivity {
                 String user_name = insertName.getText().toString();
                 CreateNewUser new_user = new CreateNewUser(user_name);
 
-                group_of_users.add(new_user);
+                group_of_users.add(new_user.getName());
 
                 insertName.getText().clear();
                 Toast.makeText(getApplicationContext(),"User added to the group!",Toast.LENGTH_SHORT).show();
