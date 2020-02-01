@@ -13,5 +13,5 @@ public class DeleteExisUser extends AppCompatActivity {
     /**
      ** Activity where the user deletes people from a group.
      */
-    
+
 }
