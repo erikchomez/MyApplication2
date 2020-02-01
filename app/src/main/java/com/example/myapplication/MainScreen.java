@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,6 +25,8 @@ import android.widget.Button;
 import android.widget.TableRow;
 
 import android.widget.TableLayout;
+
+import java.util.ArrayList;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -56,6 +59,9 @@ public class MainScreen extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Intent intent = getIntent();
+        ArrayList<String> group_of_users = intent.getStringArrayListExtra("key");
     }
 
     @Override

@@ -44,6 +44,7 @@ public class AddUserToGroup extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"User added to the group!",Toast.LENGTH_SHORT).show();
 
             }
+
         });
 
         done_adding.setOnClickListener(new View.OnClickListener() {
