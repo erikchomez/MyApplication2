@@ -2,22 +2,34 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AddUserToGroup extends AppCompatActivity {
     /**
      * Second activity where the user adds people to a group.
      */
     ArrayList<String> group_of_users;
-
+    static final int READ_BLOCK_SIZE = 100;
     Button addUser, done_adding;
     EditText insertName;
     int counter;
@@ -40,8 +52,9 @@ public class AddUserToGroup extends AppCompatActivity {
                 String user_name = insertName.getText().toString();
                 CreateNewUser new_user = new CreateNewUser(user_name);
 
-                group_of_users.add(new_user.getName());
+                WriteBtn(insertName);
 
+                group_of_users.add(new_user.getName());
                 insertName.getText().clear();
                 Toast.makeText(getApplicationContext(),"User added to the group!",Toast.LENGTH_SHORT).show();
 
@@ -66,4 +79,53 @@ public class AddUserToGroup extends AppCompatActivity {
         });
 
     }
+
+    // write text to file
+    public void WriteBtn(EditText v) {
+        // add-write text into file
+        try {
+            FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+            String name = v.getText().toString();
+            CreateNewUser new_user = new CreateNewUser(name);
+
+            outputWriter.write(new_user.toString());
+            outputWriter.close();
+
+            //display file saved message
+            Toast.makeText(getBaseContext(), "File saved successfully!",
+                    Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Read text from file
+    public void ReadBtn(View v) {
+
+        //reading text from file
+        try {
+            FileInputStream fileIn=openFileInput("mytextfile.txt");
+            InputStreamReader InputRead= new InputStreamReader(fileIn);
+
+            char[] inputBuffer= new char[READ_BLOCK_SIZE];
+            String s="";
+            int charRead;
+
+            while ((charRead=InputRead.read(inputBuffer))>0) {
+                // char to string conversion
+                String readstring=String.copyValueOf(inputBuffer,0,charRead);
+                s +=readstring;
+            }
+            InputRead.close();
+            insertName.setText(s);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
