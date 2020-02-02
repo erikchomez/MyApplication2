@@ -8,34 +8,38 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_android_black_24dp"
             android:title="@string/menu_home" />
-<!--Home is going to stay the same         -->
-<!--        Added a shape here to replace the camera-->
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+        <!--Home is going to stay the same         -->
+        <!--        Added a shape here to replace the camera-->
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Group">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/User_1"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="User 1" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:id="@+id/User_2"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="User 2" />
+            <item
+                android:id="@+id/User_3"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="User 3" />
+            <item
+                android:id="@+id/User_4"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="User 4" />
+            <item
+                android:id="@+id/User_5"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="User 5" />
+            <item
+                android:id="@+id/User_6"
+                android:icon="@drawable/ic_android_black_24dp"
+                android:title="User 6" />
         </menu>
-
     </item>
 
 </menu>
