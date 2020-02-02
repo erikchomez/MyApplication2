@@ -52,9 +52,9 @@ public class AddUserToGroup extends AppCompatActivity {
                 String user_name = insertName.getText().toString();
                 CreateNewUser new_user = new CreateNewUser(user_name);
 
+                group_of_users.add(new_user.getName());
                 WriteBtn(insertName);
 
-                group_of_users.add(new_user.getName());
                 insertName.getText().clear();
                 Toast.makeText(getApplicationContext(),"User added to the group!",Toast.LENGTH_SHORT).show();
 
@@ -87,9 +87,9 @@ public class AddUserToGroup extends AppCompatActivity {
             FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
             String name = v.getText().toString();
-            CreateNewUser new_user = new CreateNewUser(name);
+            //CreateNewUser new_user = new CreateNewUser(name);
 
-            outputWriter.write(new_user.toString());
+            outputWriter.write(name);
             outputWriter.close();
 
             //display file saved message
