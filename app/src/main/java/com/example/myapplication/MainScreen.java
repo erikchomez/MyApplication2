@@ -29,6 +29,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;//USE THIS
 
 public class MainScreen extends AppCompatActivity {
 
@@ -61,7 +62,11 @@ public class MainScreen extends AppCompatActivity {
         ArrayList<String> group_of_users = intent.getStringArrayListExtra("key");
         printLinearNames(group_of_users, userArray);
 
-        //DO SOMETHING WITH THE ArrayList OF CreateNewUsers HERE
+        //DO SOMETHING WITH THE ArrayList OF CreateNewUsers HERE FOR THE SIDEBAR
+
+        //Look at the day of the week
+        resetValuesOnMonday();
+
     }
 
     @Override
@@ -104,5 +109,18 @@ public class MainScreen extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void resetValuesOnMonday(){
+        Calendar currentDate = Calendar.getInstance();
+
+        if(currentDate.get(Calendar.DAY_OF_WEEK) == 2){
+            resetSquares();//WORK ON AND FINISH
+        }
+
+    }
+
+    public void resetSquares(){
+        ///FINISH
     }
 }
