@@ -31,6 +31,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;//USE THIS
 
+import android.graphics.Color;
+
 public class MainScreen extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -105,6 +107,7 @@ public class MainScreen extends AppCompatActivity {
             //0 -- Grey -- Default
             //1 -- Green -- Went to the Gym
             //2 -- Orange -- Free Pass
+            createAttendanceVisual(tR, userArray.get(i));
             tableLayout.addView(tR,i+1);
         }
 
@@ -118,7 +121,32 @@ public class MainScreen extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void resetValuesOnMonday(CreateNewUser user){
+    private void createAttendanceVisual(TableRow tR, CreateNewUser user){
+        for(int i = 0; i < user.getAttendanceArray().size(); i++){
+            Button square = new Button(this);
+            if(user.getAttendanceArray().get(i) == 1)
+            {
+                square.setBackgroundColor(Color.GREEN);
+            }
+            if(user.getAttendanceArray().get(i) == -1)
+            {
+                square.setBackgroundColor(Color.RED);
+            }
+            if(user.getAttendanceArray().get(i) == 2)
+            {
+                square.setBackgroundColor(Color.MAGENTA);
+            }
+            else
+            {
+                square.setBackgroundColor(Color.LTGRAY);
+            }
+            square.setHeight(50); //FIXME
+            square.setWidth(25); //FIXME does not change the default width
+            tR.addView(square);
+        }
+    }
+
+    private void resetValuesOnMonday(CreateNewUser user){
         Calendar currentDate = Calendar.getInstance();
 
         if(currentDate.get(Calendar.DAY_OF_WEEK) == 2) {
@@ -126,7 +154,7 @@ public class MainScreen extends AppCompatActivity {
         }
     }
 
-    public void resetSquares(CreateNewUser user){
+    private void resetSquares(CreateNewUser user){
         //set the all values in attendanceArray to 0
         for(int x = 0; x < 6; x++){
             user.setAttendanceArray(0, x);
