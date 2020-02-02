@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.Gravity;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -82,6 +83,10 @@ public class MainScreen extends AppCompatActivity {
             TableRow tR = new TableRow(this);
             currentName = new TextView(this);
             currentName.setText(group_of_users.get(i));
+            currentName.setTextSize(30);
+            //currentName.setGravity(16);
+            tR.setMinimumHeight(150);
+            //tR.setVerticalGravity();
             tR.addView(currentName);
             //Button new_button = new Button(this);
             //tR.addView(new_button);

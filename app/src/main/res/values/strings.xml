@@ -5,7 +5,7 @@
     <string name="email">E-mail</string>
     <string name="phone_number">Phone number</string>
     <string name="add_workout">I worked out!</string>
-    <string name="did_not_workout">Use a free pass!</string>
+    <string name="noWorkout">Use a free pass!</string>
     <string name="monday">M</string>
     <string name="tuesday">T</string>
     <string name="wednesday">W</string>
