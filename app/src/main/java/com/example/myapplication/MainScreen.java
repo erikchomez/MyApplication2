@@ -60,12 +60,9 @@ public class MainScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
         ArrayList<String> group_of_users = intent.getStringArrayListExtra("key");
-        printLinearNames(group_of_users, userArray);
+        displayElements(group_of_users, userArray);
 
         //DO SOMETHING WITH THE ArrayList OF CreateNewUsers HERE FOR THE SIDEBAR
-
-        //Look at the day of the week
-        resetValuesOnMonday();
 
     }
 
@@ -83,7 +80,7 @@ public class MainScreen extends AppCompatActivity {
         CreateNewUser user = new CreateNewUser(group_of_users.get(index));
         return user;
     }
-    private ArrayList<CreateNewUser> printLinearNames(ArrayList<String> group_of_users, ArrayList<CreateNewUser> userArray) {
+    private ArrayList<CreateNewUser> displayElements(ArrayList<String> group_of_users, ArrayList<CreateNewUser> userArray) {
         tableLayout = findViewById(R.id.simpleTableLayout);
         TextView currentName;
 
@@ -95,10 +92,19 @@ public class MainScreen extends AppCompatActivity {
             currentName.setTextSize(30);
             tR.setMinimumHeight(150);
             tR.addView(currentName);
+
             //ADD MORE SQUARES TO tR
             userArray.add(assignUserToClass(group_of_users, i));
 
+            //Reset the squares if the day is monday to start the new week
+            resetValuesOnMonday(userArray.get(i));
+
             //add buttons in the correct row here
+            //read attendanceArray values to print
+            //-1 -- Red -- Missed a gym day
+            //0 -- Grey -- Default
+            //1 -- Green -- Went to the Gym
+            //2 -- Orange -- Free Pass
             tableLayout.addView(tR,i+1);
         }
 
@@ -112,16 +118,19 @@ public class MainScreen extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void resetValuesOnMonday(){
+    public void resetValuesOnMonday(CreateNewUser user){
         Calendar currentDate = Calendar.getInstance();
 
-        if(currentDate.get(Calendar.DAY_OF_WEEK) == 2){
-            resetSquares();//WORK ON AND FINISH
+        if(currentDate.get(Calendar.DAY_OF_WEEK) == 2) {
+            resetSquares(user);//WORK ON AND FINISH
         }
-
     }
 
-    public void resetSquares(){
-        ///FINISH
+    public void resetSquares(CreateNewUser user){
+        //set the all values in attendanceArray to 0
+        for(int x = 0; x < 6; x++){
+            user.setAttendanceArray(0, x);
+        }
+
     }
 }
