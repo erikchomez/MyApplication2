@@ -106,7 +106,6 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
-        android:text="@string/did_not_workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
