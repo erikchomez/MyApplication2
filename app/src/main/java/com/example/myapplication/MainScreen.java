@@ -41,14 +41,9 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
+        ArrayList<CreateNewUser> userArray = new ArrayList<CreateNewUser>();
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -64,7 +59,9 @@ public class MainScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
         ArrayList<String> group_of_users = intent.getStringArrayListExtra("key");
-        printLinearNames(group_of_users);
+        printLinearNames(group_of_users, userArray);
+
+        //DO SOMETHING WITH THE ArrayList OF CreateNewUsers HERE
     }
 
     @Override
@@ -74,26 +71,32 @@ public class MainScreen extends AppCompatActivity {
         return true;
     }
 
-    public void printLinearNames(ArrayList<String> group_of_users) {
+    private CreateNewUser assignUserToClass(ArrayList<String> group_of_users, int index){
+        //Constructs a user object from the name given at the index given and puts it in a list
+        //ArrayList<CreateNewUser> userArray = new ArrayList<CreateNewUser>();
+        //userArray.add(new CreateNewUser(group_of_users.get(index)));
+        CreateNewUser user = new CreateNewUser(group_of_users.get(index));
+        return user;
+    }
+    private ArrayList<CreateNewUser> printLinearNames(ArrayList<String> group_of_users, ArrayList<CreateNewUser> userArray) {
         tableLayout = findViewById(R.id.simpleTableLayout);
         TextView currentName;
-        //System.out.println(group_of_users.size());
 
         for(int i = 0; i < group_of_users.size(); i++) {
             TableRow tR = new TableRow(this);
             currentName = new TextView(this);
             currentName.setText(group_of_users.get(i));
             currentName.setTextSize(30);
-            //currentName.setGravity(16);
             tR.setMinimumHeight(150);
-            //tR.setVerticalGravity();
             tR.addView(currentName);
-            //Button new_button = new Button(this);
-            //tR.addView(new_button);
+
+            userArray.add(assignUserToClass(group_of_users, i));
+
             //add buttons in the correct row here
             tableLayout.addView(tR,i+1);
         }
 
+        return userArray;
     }
 
     @Override
