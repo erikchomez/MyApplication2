@@ -27,7 +27,7 @@ public class CreateNewUser {
         return attendanceArray;
     }
 
-    public void setAttendenceArray(int num, int index){
+    public void setAttendanceArray(int num, int index){
         attendanceArray.set(index, num);
     }
 }
