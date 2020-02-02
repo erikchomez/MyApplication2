@@ -88,13 +88,14 @@ public class MainScreen extends AppCompatActivity {
         TextView currentName;
 
         for(int i = 0; i < group_of_users.size(); i++) {
+            //prints each name and set of squares on the tableLayout
             TableRow tR = new TableRow(this);
             currentName = new TextView(this);
             currentName.setText(group_of_users.get(i));
             currentName.setTextSize(30);
             tR.setMinimumHeight(150);
             tR.addView(currentName);
-
+            //ADD MORE SQUARES TO tR
             userArray.add(assignUserToClass(group_of_users, i));
 
             //add buttons in the correct row here
